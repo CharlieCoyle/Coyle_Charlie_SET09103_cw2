@@ -6,11 +6,11 @@ app = Flask(__name__)
 def  HomepageSlected(name=None):
         return  render_template('home.html')
 #Item Selected Page
-@app.route('/ccg_index/ccg')
-@app.route('/ccg_index/ccg/')
-@app.route('/ccg_index/ccg/<ccg>')
-def  CCGSlected(ccg=None):
-        return  render_template('item.html', ccg=ccg)
+@app.route('/AdventureNation/Situation')
+@app.route('/AdventureNation/Situation/')
+@app.route('/AdventureNation/Situation/<game>')
+def  GameSlected(game=None):
+        return  render_template('situation.html', game=game)
 #Serch Selected Page
 @app.route('/ccg_index/search')
 @app.route('/ccg_index/search/<ccg>')
@@ -24,9 +24,9 @@ def  AboutSelect(name=None):
 @app.route('/static/<img>')
 def  static_example_img(img=None):
   start = '<img src="'
-  url = url_for('static', filename = img + '.jpg')
+  url = 'static/'
   end = '">'
-  return start+url+end, 200
+  return start+img+end, 200
 
 
 
