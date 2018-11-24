@@ -1,11 +1,13 @@
-<!doctype  html >
+<!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.mi$
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 body {
-background-color: #5b8fae
+    font-family: 'Lato', sans-serif;
+    background-color: #7789B0
 }
-
 ul {
     list-style-type: none;
     margin: 0;
@@ -14,15 +16,25 @@ ul {
     background-color: #1c283f;
 }
 
-
-ub {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #FFF;
+li {
+    float: left;
 }
 
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #5B8FAE;
+}
+
+.active {
+    background-color: #b78882;
+}
 .overlay {
     height: 100%;
     width: 0;
@@ -86,32 +98,66 @@ ub {
   </div>
 </div>
 <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
-</body>
+
+<script>
+function openNav() {
+  document.getElementById("myNav").style.width = "100%";
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+}
+</script>
 
 <!--############--!>
-{% if game %}<!-- game present in title -->
-<body>
-<ul>
-<center>
-<font color="white">
-  <h1> Adventure Nation</h1>
-	<h2>{{game}}<h2>
-  </font>
-</center>
-</ul>
-</body>
+{% if game %}<!-- game present in title --> 
+{% if place %}
+{% for result in data %}
+{% if result.Title == place%}
+<ul><font color = "white">
+  <h1 style="text-align: center;" >Adventure Nation<h1>
+</font></ul>
+
+<h1></h1>
+
+<ul><font color = "white">
+  <h2 style="text-align: center;" >{{game}}</h2>
+  <p style="text-align: center;" >{{result.Text}}</p>
+</font></ul>
+<!--buttons -->
+	<div class="btn-group">
+		{% for link in result.Options %}
+			<form action={{link}}>
+                                <input type="submit" value={{link}} />
+                        </form>
+		{% endfor %}
+	</div>
+{% endif %}
+{% endfor %}
+{% else %}
+<ul><font color = "white">
+  <h1 style="text-align: center;" >Adventure Nation<h1>
+</font></ul>
+
+<h1></h1>
+
+<ul><font color = "white">
+  <h2 style="text-align: center;" >{{game}}</h2>
+  <h2 style="text-align: center;"  >Lets begin</h2>
+  <p style="text-align: center;" >{{data[1].Text}}</p>
+</font></ul>
+{% endif %}
 {% else %} <!-- game not present in url -->
-<body>
-<!--this is where page html goes  -->
 <ul><font color = "white">
   <h1 style="text-align: center;">What is</h1>
   <h2 style="text-align: center;">A Text based adventure game</h2>
   </font>
 </ul>
+
 <ub>
   <p>Text based adventure games have been around since before the introduction of computers in book form but the first 'modern' text based adventure games were made in the early 70's such as 'Zork'. text based adventure games were easy to write and required very little proccessing power and little to no graphical capibilits </p>
   <p>For more info <href = "https://en.wikipedia.org/wiki/Text-based_game"> </p>
 </ub>
+{% endif %}
 </body>
-{% endif % 
-
+</html>

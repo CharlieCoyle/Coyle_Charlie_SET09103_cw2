@@ -1,0 +1,134 @@
+<!doctype  html >
+<html>
+<head>
+<style>
+body {
+background-color: #5b8fae
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #1c283f;
+}
+
+li {
+    float: left;
+}
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #5B8FAE;
+}
+
+.active {
+    background-color: #b78882;
+}
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+   color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="overlay-content">
+    <a href="">Home</a>
+    <a href="#">Profile</a>
+    <a href="/login">Login</a>
+    <a href="#">Register</a>
+  </div>
+</div>
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+
+
+  <h1 style="text-align: center;">Gwent?</h1>
+  <ul><font color="white">
+  <h2>Basic info</h2>
+  <p>2-player - Age 16+ - Publisher: Cd Projekt Red  )</p>
+  <a href="http://gwent.wikia.com/wiki/Rules">Rules<a>
+  <h2>Trivia</h2>
+  <p>Gwent is based on a min game in the origonal witcher games but was later spun off into its own game and physical copies$
+  </font>
+</ul>
+</body>
+{% else %}
+  <h1 style="text-align: center;"> {{ccg}}?</h1>
+  <h2 style="text-align: center;"> Sorry Taht story is yet to be written<h2>
+
+{% endif %}
+
+{% else %}
+<body>
+<!--this is where page html goes  -->
+  <h1 style="text-align: center;">What is</h1>
+  <h1 style="text-align: center;">A Text based adventure game</h1>
+
+<ul><font color="white">
+  <h2>Text based adventure games have been around longer than computers themselves, written in books.</h2>
+  <p>Text based games have been around since the early 70s one of the most common being 'Zork' theses games required low processing power and little no no graphics processi </p>
+  <h2>Types of CCGs </h2>
+  <p>There are different types of CCGs, some are 2 player others can have more, some involve monster summoning, some involve$
+  </font>
+</ul>
+
+</body>
+{%  endif %}
+
+

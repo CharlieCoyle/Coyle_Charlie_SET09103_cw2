@@ -2,6 +2,8 @@ import os
 from  flask  import  Flask , render_template, request, url_for, jsonify
 import json
 app = Flask(__name__)
+
+
 #Home Page
 @app.route('/AdventureNation')
 def  HomepageSlected(name=None):
@@ -11,25 +13,22 @@ def  HomepageSlected(name=None):
 @app.route('/AdventureNation/Situation/')
 @app.route('/AdventureNation/Situation/<game>')
 @app.route('/AdventureNation/Situation/<game>/<place>')
-def GameSlected(game=None,place=None):
-	try:
-       		SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
-		if game is not None:
-    			json_url = os.path.join(SITE_ROOT, "static/" + game + ".json" )
-    			data = json.load(open(json_url))
-		#if broken remove
-		#for i, e in enumerate(data):
-       		#	if  place == next(iter(e)):
-            	#		return render_template('situation.html', game=game, data=e, place=place) 
-        		return render_template('situation.html', game=game, data=data, place=place)
-		return render_template('situation.html', game=game, place=place)
-	except IOError:
-		page ='''
-        	<html><body>
-         	<h1 style ="text-align: center"> This stoty is yet to be written</h1>
-         	<h2 style ="text-align: center">The Story you are looking for dosen't exist<h2>
-        	</body></html> '''
-		return page, 404
+def  GameSlected(game=None,place=None):
+			try:
+       				SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
+    				json_url = os.path.join(SITE_ROOT, "static/" + game + ".json" )
+n.load(open(json_url)
+				#for i, e in enumerate(data):
+                		#	if data[i].Title == place:
+            			#		return render_template('situation.html', game=game, dataOut = data[1])
+        				return  render_template('situation.html', game=game, dataOut=data[1])
+			except IOError:
+				page ='''
+        			<html><body>
+         			<h1 style ="text-align: center"> This stoty is yet to be written</h1>
+         			<h2 style ="text-align: center">The Story you are looking for dosen't exist<h2>
+        			</body></html> '''
+				return page, 404
 #Serch Selected Page
 @app.route('/ccg_index/search')
 @app.route('/ccg_index/search/<ccg>')
