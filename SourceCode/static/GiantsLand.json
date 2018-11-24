@@ -1,0 +1,84 @@
+var Situation = [{
+
+        "Title": "Death",
+        "Text": "You have died... a blue glow emanates form the darkness. you see that blue gem the liquid within glowing and spiraling.",
+		"Options": ["Awaken","Exit"]
+    }, {
+
+        "Title": "Awaken",
+        "Text": "You awake in a crater the earth blackened and cracked around you in your left hand is a ornate sword hilt of gold and blade of blue steel in your other a blue Gem with what looks like a liquid held within. What do you do",
+		"Options": ["Leave Crater","Lay There"]
+    }, {
+
+        "Title": "Leave Crater",
+        "Text": "You emerge from the crater. The world around you is a waste land in all but one direction.Once you emerge fully form the Crater you notice a rather large fellow, by large i mean 30ft tall and by fellow i mean Giant. What do you do",
+		"Options": ["Run","Attack","'Converse'"]
+    }, {
+
+        "Title": "Lay There",
+        "Text": "You Stare blankly at the sky above and you fall asleep",
+		"Options": ["Awaken"]
+    }, {
+
+        "Title": "Run",
+        "Text": "Good Choice he; and you can tell its a he, giants as it turns out not a fan of clothing, didn't look like the conversationalist nor the type to be trifled with. You run for what seems like a few minutes the Giant slowly lumbering behind you. you reach a dead end a cliff side you could try running along it to the left were a swamp seems to be or you could go right to a Jungle? or you could try to scale the cliff",
+		"Options": ["Go left","Scale","Go Right"]
+    }, {
+
+        "Title": "Attack",
+        "Text": "You thrust you sword directly betwixt the giants forth and big toe as he steps on you...",
+		"Options": ["Death"]
+    }, {
+
+        "Title": "'Converse'",
+        "Text": "You begin with introductions and give a bow before the ground rockets to your face as the giant crushes you with its foot.",
+		"Options": ["Death"]
+    }, {
+
+        "Title": "Scale",
+        "Text": "You attempt to get foot holds in the cliffs face and begin your accent you get 20ft up and feel a sense of pride followed by dread as a hand grasps you round the waist...",
+		"Options": ["Death"]
+    }, {
+
+        "Title": "Go Left",
+        "Text": "You make a dash for the swamp.Dull greens and tainted blues begin to appear on the ground as you start to pass sorrowful trees the ground beneath your feet getting more an more moist as your feet start to sink you consider your approach",
+		"Options": ["Careful approach","Careless approach"]
+    }, {
+
+        "Title": "Go Right",
+        "Text": "You take a dash for the jungle the air around becoming more and more humid as you approach. A wall of sound hits you animals squeaking leaves rustling in the wind. It is dense you could; hack trough with you sword or take a chance at hiding",
+		"Options": ["Hack that bush","Hide"]
+    }, {
+
+        "Title": "Careless approach",
+        "Text": "You start running as fast as you can through the swamp and the swamp creeps up you leg with each step and you inevitably get stuck... the giant has the same issue but has 24+ feet on you...",
+		"Options": ["Death"]
+    }, {
+
+        "Title": "Careful approach",
+        "Text": "You begin planing your rout avoiding the soft patches of ground as you deftly step from safe patch to safe patch staying close to the tress the giant apparently did not need to do this but was slowed by the interaction with the mud.",
+		"Options": ["Continue"]
+    }, {
+
+        "Title": "Hack through",
+        "Text": "You flail your sword in-front of you in a desperate attempts to cut through the dense vegetation around and it works you slash trough the vines. the giant was slowed, its large form does not make for easy navigationj through the trees",
+		"Options": ["Continue"]
+    }, {
+
+        "Title": "Hide",
+        "Text": "You duck behind a fairly large tree in hope the giant won't find you. Moments pass...and then in one moment a giant head appears around the side of the tree",
+		"Options": ["Attack","'Converse'"]
+    }, {
+
+        "Title": "Continue",
+        "Text": "You run into a clearing, a cliffs edge. The giant emerges into the clearing the obvious affects of his recent experience with the local terrain  The cliffs edge to you back theres only one option.",
+		"Options": ["Charge At That Giant!"]
+    }, {
+
+        "Title": "Charge At That Giant!",
+        "Text": "The giant Runs at you and you at it, you run directly between his legs making sure not to look up as an object passes mere feet above your head. The giant stumbles to a stop the ground cracking below his feet.The clif gives way the giant drooping out of sight reveling the landscape before you.Dense jungle coves the land to the horizon what will you do. TO BE CONTINUED",
+		"Options": ["Exit"]
+    }
+	
+
+];
