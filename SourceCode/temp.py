@@ -1,5 +1,5 @@
 import os
-from  flask  import  Flask , render_template, request, url_for, jsonify
+from  flask  import  Flask , render_template, request, url_for, jsonify, redirect
 import json
 app = Flask(__name__)
 #Home Page
@@ -12,16 +12,19 @@ def  HomepageSlected(name=None):
 @app.route('/AdventureNation/Situation/<game>')
 @app.route('/AdventureNation/Situation/<game>/<place>')
 def GameSlected(game=None,place=None):
+	if place == "Exit":
+		return redirect("http://set09103.napier.ac.uk:9120/AdventureNation", code=302)
 	try:
        		SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
 		if game is not None:
     			json_url = os.path.join(SITE_ROOT, "static/" + game + ".json" )
     			data = json.load(open(json_url))
+			UrlHelper = game + "/"
 		#if broken remove
 		#for i, e in enumerate(data):
        		#	if  place == next(iter(e)):
             	#		return render_template('situation.html', game=game, data=e, place=place) 
-        		return render_template('situation.html', game=game, data=data, place=place)
+        		return render_template('situation.html',UrlHelper=UrlHelper ,game=game, data=data, place=place)
 		return render_template('situation.html', game=game, place=place)
 	except IOError:
 		page ='''
