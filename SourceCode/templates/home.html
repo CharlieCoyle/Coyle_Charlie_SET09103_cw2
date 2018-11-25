@@ -87,18 +87,21 @@ li a:hover:not(.active) {
 </style>
 </head>
 <body>
-
 <div id="myNav" class="overlay">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <div class="overlay-content">
     <a href="">Home</a>
-    <a href="#">Profile</a>
-    <a href="/login">Login</a>
-    <a href="#">Register</a>
+	{% if Curent_User %}
+    <a href="AdventureNation/Profile">Profile</a>
+	{% endif %}
+    <a href="AdventureNation/SignIn">Login</a>
+    <a href="AdventureNation/Register">Register</a>
   </div>
 </div>
 <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
 
+
+<p align="right">{{Curent_User}},   _ </p>
 <ul>
 <center>
 <font color="white">
@@ -139,13 +142,15 @@ function closeNav() {
               <div class="card mb-4 shadow-sm">
                 <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="https://github.com/CharlieCoyle/Coyle_Charlie_SET09103_cw2/blob/master/SourceCode/static/File1.png?raw=true" data-holder-rendered="true">
                 <div class="card-body">
-                  <p class="card-text">Giants land</p>
+                  <p class="card-text" name="FaveLocation" value="Giants land" >Giants land</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
 			<form action="AdventureNation/Situation/GiantsLand">
     				<input type="submit" class="btn btn-sm btn-outline-secondary"  value="Play" />
 			</form>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Favorite</button>
+			<form name="favorite" action="" method="POST">
+                      <button type="button" name="Fave" >Favorite</button>
+			</form>
                     </div>
                     <small class="text-muted">9 mins</small>
                   </div>

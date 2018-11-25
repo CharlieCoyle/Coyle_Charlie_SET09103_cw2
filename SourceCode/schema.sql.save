@@ -1,0 +1,8 @@
+DROP TABLE if EXISTS accounts;
+
+CREATE TABLE accounts  (
+	username text,
+	Password text,
+	favourite text
+
+);

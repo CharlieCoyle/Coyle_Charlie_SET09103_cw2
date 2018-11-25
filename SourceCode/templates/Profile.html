@@ -44,7 +44,7 @@ li a:hover:not(.active) {
     left: 0;
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0, 0.9);
-    overflow-x: hidden;
+overflow-x: hidden;
     transition: 0.5s;
 }
 
@@ -60,7 +60,7 @@ li a:hover:not(.active) {
     padding: 8px;
     text-decoration: none;
     font-size: 36px;
-   color: #818181;
+    color: #818181;
     display: block;
     transition: 0.3s;
 }
@@ -68,7 +68,6 @@ li a:hover:not(.active) {
 .overlay a:hover, .overlay a:focus {
     color: #f1f1f1;
 }
-
 .overlay .closebtn {
     position: absolute;
     top: 20px;
@@ -87,24 +86,45 @@ li a:hover:not(.active) {
 </style>
 </head>
 <body>
-
 <div id="myNav" class="overlay">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <div class="overlay-content">
     <a href="http://set09103.napier.ac.uk:9120/AdventureNation">Home</a>
-	{% if Curent_User %}
-    <a href="AdventureNation/Profile">Profile</a>
-	{% endif %}
-    <a href="AdventureNation/SignIn">Login</a>
-    <a href="AdventureNation/Register"">Register</a>
+        {% if Curent_User %}
+	 <a href="/Profile">Profile</a>
+        {% endif %}
+    <a href="/SignIn">Login</a>
+    <a href="/Register">Register</a>
   </div>
 </div>
+
 <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+
+<p align="right">{{Curent_User}},   _ </p>
+<ul>
+<center>
+<font color="white">
+  <h1>{{Curent_User}} {{favorite}}</h1>
+	
+	{% if favourite %}
+	<form action= {{UrlHelper + favorite}}>
+                                <input type="submit" value = {{favorite}} >
+                        </form>
+	{% else %}
+	{% if Curent_User %}
+	 <form action= "Situation/GiantsLand ">
+                                <input type="submit" value = "GiantsLand" >
+                        </form>
+	{% endif %}
+	{% endif %}
+  </font>
+</center>
+</ul>
+
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
 <script>
 function openNav() {
   document.getElementById("myNav").style.width = "100%";
@@ -115,64 +135,10 @@ function closeNav() {
 }
 </script>
 
-<!--############--!>
-{% if game %}<!-- game present in title --> 
-{% if place %}
-{% for result in data %}
-{% if result.Title == place%}
-<ul><font color = "white">
-  <h1 style="text-align: center;" >Adventure Nation<h1>
-</font></ul>
 
-<h1></h1>
 
-<ul><font color = "white">
-  <h2 style="text-align: center;" >{{game}}</h2>
-  <p style="text-align: center;" >{{result.Text}}</p>
-<!--buttons -->
-<div class="d-flex justify-content-between align-items-center">
-	<div class="btn-group">
-		{% for link in result.Options %}
-			<form action={{link}}>
-                                <input type="submit" class="btn btn-sm btn-outline-secondary"  value={{link}} />
-                        </form>
-		{% endfor %}
-	</div>
-<div>
-</font></ul>
-{% endif %}
-{% endfor %}
-{% else %}
-<ul><font color = "white">
-  <h1 style="text-align: center;" >Adventure Nation<h1>
-</font></ul>
 
-<h1></h1>
-
-<ul><font color = "white">
-  <h2 style="text-align: center;" >{{game}}</h2>
-  <h2 style="text-align: center;"  >Lets begin</h2>
-  <p style="text-align: center;" >{{data[1].Text}}</p>
-<p>
-		{% for link in data[1].Options %}
-                        <form action= {{UrlHelper + link}}>
-                                <input type="submit" value = {{link}} >
-                        </form>
-                {% endfor %}
-</p>
-</font></ul>
-{% endif %}
-{% else %} <!-- game not present in url -->
-<ul><font color = "white">
-  <h1 style="text-align: center;">What is</h1>
-  <h2 style="text-align: center;">A Text based adventure game</h2>
-  </font>
-</ul>
-
-<ub>
-  <p>Text based adventure games have been around since before the introduction of computers in book form but the first 'modern' text based adventure games were made in the early 70's such as 'Zork'. text based adventure games were easy to write and required very little proccessing power and little to no graphical capibilits </p>
-  <p>For more info <href = "https://en.wikipedia.org/wiki/Text-based_game"> </p>
-</ub>
-{% endif %}
 </body>
 </html>
+
+
