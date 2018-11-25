@@ -125,7 +125,7 @@ def  GameSlected(game=None,place=None):
 	except IOError:
 		page ='''
         	<html><body>
-         	<h1 style ="text-align: center"> This stoty is yet to be written</h1>
+         	<h1 style ="text-align: center"> This story is yet to be written</h1>
          	<h2 style ="text-align: center">The Story you are looking for dosen't exist<h2>
         	</body></html> '''
 		return page, 404
